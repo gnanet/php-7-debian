@@ -4,7 +4,7 @@ These are a set of bash scripts for building and running PHP 7 (CLI and FPM) on 
 
 - `build.sh` installs the necessary build dependencies and the latest stable version of PHP with CLI and FPM server APIs (SAPI) from the latest PHP 7 branch of https://github.com/php/php-src.
 
-- `install.sh` sets up PHP-FPM by moving configuration files into their correct locations in `/usr/local/php7` and enables the `php7-fpm` service and adds it to the startup sequence.
+- `install.sh` sets up PHP-FPM by moving configuration files into their correct locations in `/opt/build/php/7.3` and enables the `php7-fpm` service and adds it to the startup sequence.
 
 Please note that these are very simple scripts that don't implement error checking or process validation.
 
@@ -32,7 +32,7 @@ while the FPM socket is available at
 
 	127.0.0.1:9007
 
-and PHP CLI at `/usr/local/php7/bin/php`.
+and PHP CLI at `/opt/build/php/7.3/bin/php`.
 
 ### Updating
 
@@ -41,12 +41,12 @@ Pull down the latest changes from this repository `git pull` and run `./build.sh
 
 ## Configuration files
 
-All PHP configuration files are stored under `/usr/local/php7`:
+All PHP configuration files are stored under `/opt/build/php/7.3`:
 
-	/usr/local/php7/lib/php.ini
-	/usr/local/php7/etc/php-fpm.conf
-	/usr/local/php7/etc/php-fpm.d/www.conf
-	/usr/local/php7/etc/conf.d/modules.ini
+	/opt/build/php/7.3/lib/php.ini
+	/opt/build/php/7.3/etc/php-fpm.conf
+	/opt/build/php/7.3/etc/php-fpm.d/www.conf
+	/opt/build/php/7.3/etc/conf.d/modules.ini
 
 while the Debian init script is added to:
 
@@ -57,7 +57,7 @@ while the Debian init script is added to:
 
 Here is a list of PHP modules that are enabled by default in this build:
 
-	$ /usr/local/php7/bin/php -m
+	$ /opt/build/php/7.3/bin/php -m
 	[PHP Modules]
 	bcmath
 	bz2

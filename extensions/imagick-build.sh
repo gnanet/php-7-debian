@@ -11,8 +11,8 @@ git clone https://github.com/mkoppanen/imagick.git
 cd imagick
 git pull
 
-/usr/local/php7/bin/phpize
-./configure --with-php-config=/usr/local/php7/bin/php-config
+/opt/build/php/7.3/bin/phpize
+./configure --with-php-config=/opt/build/php/7.3/bin/php-config
 
 make
 sudo make install
