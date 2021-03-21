@@ -44,6 +44,7 @@ if [ -d /opt/build/php/7.3/lib/php/modules ]; then
             echo "extension=${tm}" >> /opt/build/php/7.3/etc/php.d/$(basename ${tm} .so).ini
         fi
     done
+    cd -
 fi
 
 cp conf/www.conf /opt/build/php/7.3/etc/php-fpm.d/www.conf
