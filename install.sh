@@ -37,8 +37,10 @@ if [ -d /opt/build/php/7.3/lib/php/modules ]; then
     ls -1 *.so | while read tm; do
         echo "; Enable $(basename ${tm} .so) extension module" > /opt/build/php/7.3/etc/php.d/$(basename ${tm} .so).ini
         if [[ "${tm}" == "opcache.so" ]]; then
+        echo "; Enable $(basename ${tm} .so) extension module" > /opt/build/php/7.3/etc/php.d/10_$(basename ${tm} .so).ini
             echo "zend_extension=${tm}" >> /opt/build/php/7.3/etc/php.d/10_$(basename ${tm} .so).ini
         elif [[ "${tm}" == "mysqlnd.so" ]]; then
+        echo "; Enable $(basename ${tm} .so) extension module" > /opt/build/php/7.3/etc/php.d/20_$(basename ${tm} .so).ini
             echo "extension=${tm}" >> /opt/build/php/7.3/etc/php.d/20_$(basename ${tm} .so).ini
         else
             echo "extension=${tm}" >> /opt/build/php/7.3/etc/php.d/$(basename ${tm} .so).ini
