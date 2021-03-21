@@ -40,6 +40,7 @@ sudo apt-get install -y \
     libicu-dev \
     libssl-dev \
     libcurl4-openssl-dev \
+    libkrb5-dev \
     libltdl-dev \
     libjpeg8-dev \
     libpng12-dev \
@@ -116,6 +117,7 @@ CONFIGURE_STRING="--prefix=/opt/build/php/7.3 \
                   --enable-xml \
                   --with-imap=shared \
                   --with-imap-ssl \
+                  --with-kerberos \
                   --with-xmlrpc=shared \
                   --enable-dom=shared \
                   --with-xsl=shared,/usr \
