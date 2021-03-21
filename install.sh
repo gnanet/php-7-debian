@@ -20,8 +20,8 @@ fi
 cd "$(dirname "$0")"
 
 # Create a dir for storing PHP module conf
-if [ ! -d /opt/build/php/7.3/etc/conf.d ]; then
-    mkdir -p /opt/build/php/7.3/etc/conf.d
+if [ ! -d /opt/build/php/7.3/etc/php.d ]; then
+    mkdir -p /opt/build/php/7.3/etc/php.d
 fi
 
 # Add config files
@@ -35,13 +35,13 @@ fi
 if [ -d /opt/build/php/7.3/lib/php/modules ]; then
     cd /opt/build/php/7.3/lib/php/modules
     ls -1 *.so | while read tm; do
-        echo "; Enable $(basename ${tm} .so) extension module" > /opt/build/php/7.3/etc/conf.d/$(basename ${tm} .so).ini
+        echo "; Enable $(basename ${tm} .so) extension module" > /opt/build/php/7.3/etc/php.d/$(basename ${tm} .so).ini
         if [[ "${tm}" == "opcache.so" ]]; then
-            echo "zend_extension=${tm}" >> /opt/build/php/7.3/etc/conf.d/10_$(basename ${tm} .so).ini
+            echo "zend_extension=${tm}" >> /opt/build/php/7.3/etc/php.d/10_$(basename ${tm} .so).ini
         elif [[ "${tm}" == "mysqlnd.so" ]]; then
-            echo "extension=${tm}" >> /opt/build/php/7.3/etc/conf.d/20_$(basename ${tm} .so).ini
+            echo "extension=${tm}" >> /opt/build/php/7.3/etc/php.d/20_$(basename ${tm} .so).ini
         else
-            echo "extension=${tm}" >> /opt/build/php/7.3/etc/conf.d/$(basename ${tm} .so).ini
+            echo "extension=${tm}" >> /opt/build/php/7.3/etc/php.d/$(basename ${tm} .so).ini
         fi
     done
 fi
