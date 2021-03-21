@@ -36,6 +36,7 @@ sudo apt-get install -y \
     libonig-dev \
     libsqlite3-dev \
     libxml2-dev \
+    libxslt1-dev \
     libbz2-dev \
     libicu-dev \
     libssl-dev \
@@ -124,6 +125,7 @@ CONFIGURE_STRING="--prefix=/opt/build/php/7.3 \
                   --enable-xmlreader=shared \
                   --enable-xmlwriter=shared \
                   --with-sqlite3=shared \
+                  --with-pdo-sqlite=shared,/usr \
                   --enable-phar=shared \
                   --with-tidy=shared,/usr \
                   --enable-fileinfo=shared \
