@@ -51,7 +51,7 @@ sudo apt-get install -y \
     libsqlite3-dev
 
 if [ ! -d /opt/build/php/7.3 ]; then
-    sudo mkdir /opt/build/php/7.3
+    sudo mkdir -p /opt/build/php/7.3
 fi
 
 git clone https://github.com/php/php-src.git
