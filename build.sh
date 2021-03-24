@@ -50,7 +50,9 @@ sudo apt-get install -y \
     libreadline-dev \
     libtidy-dev \
     libc-client2007e-dev \
-    libsqlite3-dev
+    libsqlite3-dev \
+    libsasl2-dev \
+    libldap2-dev
 
 if [ ! -d /opt/build/php/7.3 ]; then
     sudo mkdir -p /opt/build/php/7.3
@@ -131,6 +133,8 @@ CONFIGURE_STRING="--prefix=/opt/build/php/7.3 \
                   --enable-fileinfo=shared \
                   --enable-posix=shared \
                   --with-libedit \
+                  --with-ldap=shared \
+                  --with-ldap-sasl \
                   --enable-fpm \
                   --with-fpm-user=www-data \
                   --with-fpm-group=www-data"
